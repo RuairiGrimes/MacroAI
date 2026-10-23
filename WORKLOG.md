@@ -457,9 +457,35 @@
       - Enhanced each meal section header (`Breakfast`, `Lunch`, `Dinner`, `Snack`) with inline macro badges (`P Xg`, `C Xg`, `F Xg`, `Fibre Xg`), share of daily calories (`X% of day`), total meal weight (`Xg`), and an expandable `Insights` toggle.
       - Built `MealInsightsDrillDownCard` (`AnimatedVisibility`) exposing per-meal macro calorie split bar (`% Protein`, `% Carbs`, `% Fat`), per-meal macro cards (`% of daily goal`, kcal, Sugar, Fibre, Saturated Fat, PUFA), per-meal NOVA 4 UPF % & weight, per-meal Seed Oil Traffic Light assessment, and key electrolytes (`Na`, `K`, `Ca`, `Fe`).
 
-
-
-
-
-
+23. **v1.0.0 Release: Configurable In-App Credentials, Setup Guide Tutorial, GitHub Actions CI/CD & Git Initial Release:**
+    - **Configurable Credentials & Dual-Layer Hierarchy (`UserProfile.kt`, `UserPreferencesDataStore.kt`, `GeminiMealAnalyzer.kt`, `SheetsWebhookClient.kt`, `SheetsSyncWorker.kt`):**
+      - Added `customGeminiApiKey` and `customSheetsWebhookUrl` to `UserProfile` and persisted them in `UserPreferencesDataStore` (`custom_gemini_api_key`, `custom_sheets_webhook_url`).
+      - Implemented resolution hierarchy in `GeminiMealAnalyzer.getEffectiveApiKey` and `SheetsWebhookClient.getEffectiveWebhookUrl`:
+        1. Custom In-App Key/URL (User-configured via UI).
+        2. Build-time `local.properties` / `BuildConfig` fallback.
+      - Added test ping functions: `GeminiMealAnalyzer.testApiKey(key)` and `SheetsWebhookClient.testWebhookUrl(url)` with live HTTP status verification.
+      - Updated `SheetsSyncWorker` to gracefully skip sync when unconfigured rather than failing.
+      - Updated `scripts/google_apps_script_webhook.js` with optional spreadsheet ID (defaults to active sheet), `doGet` health check, and ping handler.
+    - **Settings UI & In-App Setup Tutorial (`TdeeSettingsScreen.kt`, `TdeeSettingsViewModel.kt`):**
+      - Added **"4. Cloud & AI Integration"** card to Settings:
+        - Masked Gemini API key field with show/hide toggle, status badge (`Custom Key Set` / `Build Default Active` / `Key Missing`), and interactive `Test Key` button.
+        - Google Sheets Webhook URL field with status badge and `Test Webhook` button.
+        - `Save Credentials` and `Clear Keys` buttons.
+      - Added interactive `SetupGuideDialog` with tabbed tutorials:
+        - Tab 1: Free Gemini AI Studio API key generation in 4 steps.
+        - Tab 2: Google Sheets Apps Script Webhook deployment in 6 steps.
+    - **Documentation & Setup Guides (`README.md`, `docs/SETUP_GUIDE.md`, `LICENSE`):**
+      - Created comprehensive GitHub `README.md` with feature tour, privacy philosophy, and quick-start instructions.
+      - Created `docs/SETUP_GUIDE.md` walking users through obtaining free API keys, setting up Google Sheets, and configuring GitHub secrets.
+      - Added Apache License 2.0 (`LICENSE`).
+    - **GitHub Actions CI/CD & Build Pipeline (`.github/workflows/android-release.yml`, `app/build.gradle.kts`):**
+      - Automated CI workflow on push/PR to `main` and release tags (`v*`).
+      - Set up JDK 17, Gradle cache, release unit testing (`testReleaseUnitTest`), and APK build (`assembleRelease`).
+      - Automated GitHub Releases creation with attached signed APK on `v*` tag push.
+      - Updated `app/build.gradle.kts` to read secrets from environment variables and gracefully fall back to debug signing if release keystore is absent on CI.
+    - **Test Baseline & Verification (`NutritionEnginesTest.kt`):**
+      - Fixed `OpenFoodFactsApi searchFoods` and `EndOfDayCalculator generateLocalReport` test assertions.
+      - Added unit tests for credential resolution and webhook connection testing (30/30 unit tests passing).
+      - Built standalone signed release APK (`MacroAI-v1.0.0-release.apk`, 80.8MB).
+      - Initialized Git repository on `main`, committed all files with clean `.gitignore`, and tagged release `v1.0.0`.
 
