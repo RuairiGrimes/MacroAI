@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="250dp"
+    android:height="120dp"
+    android:viewportWidth="250"
+    android:viewportHeight="120">
+    <!-- Background rounded card -->
+    <path
+        android:fillColor="#FF181D27"
+        android:pathData="M16,0 H234 A16,16 0 0,1 250,16 V104 A16,16 0 0,1 234,120 H16 A16,16 0 0,1 0,104 V16 A16,16 0 0,1 16,0 Z" />
+    <!-- Accent indicator -->
+    <path
+        android:fillColor="#FF10B981"
+        android:pathData="M24,24 H90 V40 H24 Z" />
+    <path
+        android:fillColor="#FF38BDF8"
+        android:pathData="M24,48 H140 V54 H24 Z" />
+    <path
+        android:fillColor="#FFF59E0B"
+        android:pathData="M24,62 H120 V68 H24 Z" />
+    <!-- Quick buttons -->
+    <path
+        android:fillColor="#FF252C3A"
+        android:pathData="M190,20 H230 V60 H190 Z" />
+    <path
+        android:fillColor="#FF252C3A"
+        android:pathData="M190,68 H230 V100 H190 Z" />
+</vector>
+

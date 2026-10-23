@@ -1,0 +1,215 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "d389786fd5ab3071b401209b6165b8e6",
+    "entities": [
+      {
+        "tableName": "food_logs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `mealType` TEXT NOT NULL, `name` TEXT NOT NULL, `source` TEXT NOT NULL, `servingWeightGrams` REAL NOT NULL, `calories` REAL NOT NULL, `proteinG` REAL NOT NULL, `carbsG` REAL NOT NULL, `fatG` REAL NOT NULL, `saturatedFatG` REAL NOT NULL, `polyunsaturatedFatG` REAL NOT NULL, `monounsaturatedFatG` REAL NOT NULL, `sugarG` REAL NOT NULL, `fibreG` REAL NOT NULL, `novaGroup` INTEGER, `isUpf` INTEGER NOT NULL, `containsSeedOils` INTEGER NOT NULL, `detectedSeedOils` TEXT NOT NULL, `aiConfidenceReasoning` TEXT, `sodiumMg` REAL NOT NULL, `potassiumMg` REAL NOT NULL, `ironMg` REAL NOT NULL, `calciumMg` REAL NOT NULL, `vitaminCMg` REAL NOT NULL, `vitaminDUg` REAL NOT NULL, `magnesiumMg` REAL NOT NULL, `isSyncedToSheets` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mealType",
+            "columnName": "mealType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "source",
+            "columnName": "source",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "servingWeightGrams",
+            "columnName": "servingWeightGrams",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "calories",
+            "columnName": "calories",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "proteinG",
+            "columnName": "proteinG",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "carbsG",
+            "columnName": "carbsG",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fatG",
+            "columnName": "fatG",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saturatedFatG",
+            "columnName": "saturatedFatG",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "polyunsaturatedFatG",
+            "columnName": "polyunsaturatedFatG",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "monounsaturatedFatG",
+            "columnName": "monounsaturatedFatG",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sugarG",
+            "columnName": "sugarG",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fibreG",
+            "columnName": "fibreG",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "novaGroup",
+            "columnName": "novaGroup",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isUpf",
+            "columnName": "isUpf",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "containsSeedOils",
+            "columnName": "containsSeedOils",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "detectedSeedOils",
+            "columnName": "detectedSeedOils",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "aiConfidenceReasoning",
+            "columnName": "aiConfidenceReasoning",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sodiumMg",
+            "columnName": "sodiumMg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "potassiumMg",
+            "columnName": "potassiumMg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ironMg",
+            "columnName": "ironMg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "calciumMg",
+            "columnName": "calciumMg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vitaminCMg",
+            "columnName": "vitaminCMg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vitaminDUg",
+            "columnName": "vitaminDUg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "magnesiumMg",
+            "columnName": "magnesiumMg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isSyncedToSheets",
+            "columnName": "isSyncedToSheets",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_food_logs_timestamp",
+            "unique": false,
+            "columnNames": [
+              "timestamp"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_food_logs_timestamp` ON `${TABLE_NAME}` (`timestamp`)"
+          },
+          {
+            "name": "index_food_logs_isSyncedToSheets",
+            "unique": false,
+            "columnNames": [
+              "isSyncedToSheets"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_food_logs_isSyncedToSheets` ON `${TABLE_NAME}` (`isSyncedToSheets`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd389786fd5ab3071b401209b6165b8e6')"
+    ]
+  }
+}
